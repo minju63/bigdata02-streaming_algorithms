@@ -2,3 +2,5 @@ data/
 run.log
 __pycache__/
 *.pyc
+.venv/
+tmp/
