@@ -1,6 +1,7 @@
 """Run all experiments -> outputs/results.json + outputs/fig_*.png.
 
-This script does NOT build the PDF report (see make_report.py, run it separately).
+The submitted PDF report is a separate deliverable; this script reproduces the
+JSON results and every figure used in that report.
 
 Part A  headline benchmark: true one-record-at-a-time streaming (file -> parse -> update)
 Part B  parameter sweeps: same algorithms, vectorised add_many on pre-parsed arrays
