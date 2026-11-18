@@ -238,6 +238,17 @@ def parameter_sweeps(users, movies, exact_pairs, positives, negatives, movie_tru
     return {"bloom": bloom_rows, "cms": cms_rows, "cms_n_keys": len(movie_ids)}
 
 
+def plain_log_ticks(fig):
+    """Log-axis tick labels as plain numbers (mathtext needs a U+2212 glyph that Korean fonts lack)."""
+    from matplotlib.ticker import FuncFormatter, NullFormatter
+
+    for axis_obj in fig.axes:
+        for axis, scale in ((axis_obj.xaxis, axis_obj.get_xscale()), (axis_obj.yaxis, axis_obj.get_yscale())):
+            if scale == "log":
+                axis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:g}"))
+                axis.set_minor_formatter(NullFormatter())
+
+
 def figures(representative, sweeps):
     import matplotlib
 
@@ -280,6 +291,7 @@ def figures(representative, sweeps):
     axes[1].set_ylabel("실측 FPR")
     axes[1].set_title("이론값과 실측값 비교")
     axes[1].grid(alpha=0.3)
+    plain_log_ticks(fig)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig_bloom.png"), dpi=150)
     plt.close(fig)
@@ -317,6 +329,7 @@ def figures(representative, sweeps):
     axes[2].set_title("메모리-정확도 trade-off")
     axes[2].grid(alpha=0.3)
     axes[2].legend(fontsize=7)
+    plain_log_ticks(fig)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig_cms.png"), dpi=150)
     plt.close(fig)
@@ -343,6 +356,7 @@ def figures(representative, sweeps):
     axes[1].set_title("처리량")
     axes[1].legend()
     axes[1].grid(alpha=0.3, axis="y")
+    plain_log_ticks(fig)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig_headline.png"), dpi=150)
     plt.close(fig)
