@@ -95,6 +95,11 @@ class BloomFilter:
             result &= ((self._arr[byte] >> bit) & 1) == 1
         return result
 
+    def merge(self, other):
+        """Union of two filters built with the same m, k and seed: bitwise OR."""
+        assert (self.m, self.k, self._seed) == (other.m, other.k, other._seed)
+        np.bitwise_or(self._arr, other._arr, out=self._arr)
+
     def fill_ratio(self):
         return float(np.unpackbits(self._arr).sum()) / (8 * len(self.bits))
 
@@ -131,6 +136,13 @@ class CountMinSketch:
             self._rows[row][splitmix64(key ^ self._seeds[row]) % self.w]
             for row in range(self.d)
         )
+
+    def merge(self, other):
+        """Sketch of the concatenated streams: add the counters (same width, depth, seeds)."""
+        assert (self.w, self.d, self._seeds) == (other.w, other.d, other._seeds)
+        for row in range(self.d):
+            self._views[row] += other._views[row]
+        self.total += other.total
 
     def _hash_row(self, keys, row):
         hashes = splitmix64_np(keys ^ np.uint64(self._seeds[row]))

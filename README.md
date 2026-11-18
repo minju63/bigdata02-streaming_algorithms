@@ -18,7 +18,9 @@ Bloom Filter는 비트 배열과 이중 해싱을, Count-Min Sketch는 `depth ×
 | `algorithms.py` | Bloom Filter와 Count-Min Sketch 구현 |
 | `download_data.py` | MovieLens 1M 다운로드 및 압축 해제 |
 | `run_experiments.py` | 전체 실험 및 결과·그림 생성 |
-| `outputs/results.json` | 실험 원시 결과 |
+| `run_extra.py` | 추가 실험(CMS Top-K 복원율, Bloom 용량 초과, 병합 검증, 메모리 확장성, 시간 5회 반복) |
+| `outputs/results.json` | 대표 실험·파라미터 스윕 원시 결과 |
+| `outputs/extra.json` | 추가 실험 원시 결과 |
 
 ## 실행 방법
 
@@ -32,6 +34,7 @@ python -m venv .venv
 pip install -r requirements.txt
 python download_data.py
 python run_experiments.py
+python run_extra.py      # 추가 실험 (run_experiments.py와 독립적으로 실행 가능)
 ```
 
 실험 결과는 `outputs/results.json`, 그림은 `outputs/fig_*.png`에 생성됩니다. 난수 seed는 42로 고정되며, 시간과 처리량은 실행 환경에 따라 달라질 수 있습니다.

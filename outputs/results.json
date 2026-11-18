@@ -1,14 +1,14 @@
 {
   "env": {
-    "python": "3.12.14",
-    "numpy": "2.3.5",
+    "python": "3.14.3",
+    "numpy": "2.4.4",
     "n_records": 1000209,
     "seed": 42,
     "platform": "Windows-11-10.0.26200-SP0",
     "cpu": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel"
   },
   "A": {
-    "read_only_sec": 0.35919300001114607,
+    "read_only_sec": 0.43317560001742095,
     "bloom": {
       "n_unique": 1000209,
       "m_bits": 10002090,
@@ -18,15 +18,15 @@
       "theory_fpr": 0.008193722065862417,
       "fnr": 0.0,
       "fill": 0.5033977878236722,
-      "time_stream": 2.3696330999955535,
-      "time_net": 2.0104400999844074,
-      "throughput": 422094.45842138043,
+      "time_stream": 4.8169852999271825,
+      "time_net": 4.3838096999097615,
+      "throughput": 207642.11176129602,
       "struct_bytes": 1250262,
-      "traced_peak": 1278269,
-      "exact_time": 0.4667448999825865,
-      "exact_bytes": 65562203,
-      "exact_peak": 70483338,
-      "exact_throughput": 2142945.7505316418
+      "traced_peak": 1404470,
+      "exact_time": 0.4400665001012385,
+      "exact_bytes": 61573075,
+      "exact_peak": 68101034,
+      "exact_throughput": 2272858.760596181
     },
     "cms_movie": {
       "n_keys": 3706,
@@ -41,15 +41,15 @@
       "top100_mean_rel_err": 0.022273407152271833,
       "bound": 1327.56345183652,
       "frac_within_bound": 1.0,
-      "time_stream": 2.4234403999289498,
-      "time_net": 2.0642473999178037,
-      "throughput": 412722.75564496,
+      "time_stream": 2.9999565999023616,
+      "time_net": 2.5667809998849407,
+      "throughput": 333407.823310695,
       "struct_bytes": 40960,
-      "traced_peak": 74210,
-      "exact_time": 0.43420439993496984,
-      "exact_bytes": 283563,
-      "exact_peak": 311080,
-      "exact_throughput": 2303544.137622281
+      "traced_peak": 200518,
+      "exact_time": 0.3841937000397593,
+      "exact_bytes": 279395,
+      "exact_peak": 434580,
+      "exact_throughput": 2603397.7129153623
     },
     "cms_user": {
       "n_keys": 6040,
@@ -64,15 +64,15 @@
       "top100_mean_rel_err": 0.09784610650384876,
       "bound": 1327.56345183652,
       "frac_within_bound": 1.0,
-      "time_stream": 2.43635989993345,
-      "time_net": 2.077166899922304,
-      "throughput": 410534.1743751902,
+      "time_stream": 2.9613812000025064,
+      "time_net": 2.5282055999850854,
+      "throughput": 337750.84409908234,
       "struct_bytes": 40960,
-      "traced_peak": 74074,
-      "exact_time": 0.4002786000492051,
-      "exact_bytes": 495779,
-      "exact_peak": 641198,
-      "exact_throughput": 2498782.0979613876
+      "traced_peak": 200385,
+      "exact_time": 0.8612495000706986,
+      "exact_bytes": 491615,
+      "exact_peak": 760382,
+      "exact_throughput": 1161346.3925585959
     }
   },
   "B": {
